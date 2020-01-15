@@ -50,14 +50,14 @@ object Spark_Scala_Team101 extends App{
     //employees.explain()       //some facts, not interesting
     //employees.map()
 
+    // employees.columns.foreach(println)
+    employees.select("C_CUSTKEY","C_ADDRESS").show(15)
 
-    /*
-    // Mapping to tuples TODO: Klären welche
+    // Mapping to tuples TODO: Klären welche ... DONE
     employees
-      .map(i => (i, "nonce", 3.1415, true))
-      .take(10)
+      .map(_ + ",")
+      .take(15)
       .foreach(println(_))
-    */
 
 
     /*
