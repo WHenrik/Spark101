@@ -51,11 +51,12 @@ object Spark_Scala_Team101 extends App{
     //employees.map()
 
     // employees.columns.foreach(println)
-    employees.select("C_CUSTKEY","C_ADDRESS").show(15)
+    //employees.select("C_CUSTKEY","C_ADDRESS").show(15)
 
     // Mapping to tuples TODO: Klären welche ... DONE
     employees
       .map(_ + ",")
+      .flatMap(line => line.split(","))
       .take(15)
       .foreach(println(_))
 
